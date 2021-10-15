@@ -18,13 +18,13 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-//        btnListener
+//        inisialisasi viewModela
         viewModel = MainViewModel(CuboidModel())
+//        btnListener
         binding.btnSave.setOnClickListener(this)
         binding.btnCalculateSurfaceArea.setOnClickListener(this)
         binding.btnCalculateCircumference.setOnClickListener(this)
         binding.btnCalculateVolume.setOnClickListener(this)
-
     }
 
     override fun onClick(v: View?) {
@@ -68,13 +68,15 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         }
     }
 
+    // btn save akan terlihat ketika user menekan tbl lain, tujuanya untuk siap menerima inputan baru jika ada
     private fun gone() {
         binding.btnCalculateVolume.visibility = View.GONE
-        binding.btnCalculateCircumference.visibility =View.GONE
+        binding.btnCalculateCircumference.visibility = View.GONE
         binding.btnCalculateSurfaceArea.visibility = View.GONE
         binding.btnSave.visibility = View.VISIBLE
     }
 
+    // ketika btn save ditekan, maka tombol lain akan aktif
     private fun visible() {
         binding.btnCalculateVolume.visibility = View.VISIBLE
         binding.btnCalculateCircumference.visibility = View.VISIBLE
